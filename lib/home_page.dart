@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-
+import "package:flutter_swiper/flutter_swiper.dart";
+import 'package:universe_ui/data.dart';
 import 'constanst.dart';
 
 class HomePage extends StatefulWidget {
@@ -63,6 +64,26 @@ class _HomePageState extends State<HomePage> {
                       underline: const SizedBox(),
                     )
                   ],
+                ),
+              ),
+              Container(
+                height: 500,
+                padding: const EdgeInsets.only(left: 32),
+                child: Swiper(
+                  itemCount: planets.length,
+                  itemWidth: MediaQuery.of(context).size.width - 4 * 64,
+                  layout: SwiperLayout.STACK,
+                  pagination: const SwiperPagination(
+                    builder: DotSwiperPaginationBuilder(
+                      activeSize: 8,
+                      space: 2,
+                    ),
+                  ),
+                  itemBuilder: (context, index) {
+                    return InkWell(onTap: () {
+                      // Navigator.push(context, PageRouteBuilder(pageBuilder: (context, a, b) => DetailPage))
+                    });
+                  },
                 ),
               ),
             ],
