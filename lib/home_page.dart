@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_swiper/flutter_swiper.dart";
 import 'package:universe_ui/data.dart';
 import 'constanst.dart';
+import 'detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -80,9 +81,55 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   itemBuilder: (context, index) {
-                    return InkWell(onTap: () {
-                      // Navigator.push(context, PageRouteBuilder(pageBuilder: (context, a, b) => DetailPage))
-                    });
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, a, b) => DetailPage(
+                              planetInfo: planets[index],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Stack(children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            const SizedBox(
+                              height: 100,
+                            ),
+                            Card(
+                              elevation: 8,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(32),
+                              ),
+                              color: Colors.white,
+                              child: Padding(
+                                padding: const EdgeInsets.all(32.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    const SizedBox(
+                                      height: 100,
+                                    ),
+                                    Text(
+                                      planets[index].name,
+                                      style: const TextStyle(
+                                        fontFamily: "Avenir",
+                                        fontSize: 24,
+                                        color: Color(0xff47455f),
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
+                    );
                   },
                 ),
               ),
