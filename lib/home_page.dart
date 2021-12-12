@@ -122,11 +122,58 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       textAlign: TextAlign.left,
                                     ),
+                                    const Text(
+                                      "Solar System",
+                                      style: TextStyle(
+                                          fontFamily: "Avenir",
+                                          fontSize: 23,
+                                          color: Color(0x7cdbf1ff),
+                                          fontWeight: FontWeight.w500),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                    const SizedBox(
+                                      height: 32,
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          "Know More",
+                                          style: TextStyle(
+                                              fontFamily: "Avenir",
+                                              fontSize: 16,
+                                              color: secondaryTextColor,
+                                              fontWeight: FontWeight.w500),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                        Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: secondaryTextColor,
+                                        )
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
                             ),
                           ],
+                        ),
+                        Hero(
+                          tag: planets[index].position,
+                          child: Image.asset(planets[index].iconImage),
+                        ),
+                        Positioned(
+                          right: 24,
+                          bottom: 60,
+                          child: Text(
+                            planets[index].position.toString(),
+                            style: TextStyle(
+                              fontFamily: "Avenir",
+                              fontSize: 200,
+                              color: primaryTextColor.withOpacity(0.08),
+                              fontWeight: FontWeight.w900,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
                         ),
                       ]),
                     );
@@ -135,6 +182,32 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.vertical(
+            top: Radius.circular(36.0),
+          ),
+          color: navigationColor,
+        ),
+        padding: const EdgeInsets.all(24.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(
+              icon: Image.asset('assets/menu_icon.png'),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Image.asset('assets/search_icon.png'),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Image.asset('assets/profile_icon.png'),
+              onPressed: () {},
+            ),
+          ],
         ),
       ),
     );
