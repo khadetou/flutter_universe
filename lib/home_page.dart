@@ -68,11 +68,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                height: 500,
+                height: 400,
                 padding: const EdgeInsets.only(left: 32),
                 child: Swiper(
                   itemCount: planets.length,
-                  itemWidth: MediaQuery.of(context).size.width - 4 * 64,
+                  itemWidth: 250, //MediaQuery.of(context).size.width - 4 * 64
                   layout: SwiperLayout.STACK,
                   pagination: const SwiperPagination(
                     builder: DotSwiperPaginationBuilder(
